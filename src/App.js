@@ -1,23 +1,69 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import TravelLog from './components/TravelLog';
+import React, { useEffect, useState } from 'react';
+import data from './data';
+
+const audio = new Audio(process.env.PUBLIC_URL + '/img/dancepm.mp3');
+audio.preload = "auto";
+
 
 function App() {
+  const travelLogs = data.map(item => (
+    <TravelLog key={item.id} item={item} />
+  ));
+
+
+  window.addEventListener('resize', handleResize);
+  function handleResize() {
+      const grid = document.querySelector('.grid--lines');
+      grid.style.visibility = 'visible';
+      grid.style.opacity = 1;
+
+      setTimeout(() => {
+        grid.style.opacity = 0;
+      }, 1000);
+
+      setTimeout(() => {
+        grid.style.visibility = 'hidden';
+      }, 2000);
+  }
+
+
+  const [soundIcon, setSoundIcon] = useState(null);
+  const [isSoundOn, setIsSoundOn] = useState(false);
+
+  useEffect(() => {
+    const soundIconElement = document.querySelector('.sound--icon');
+    setSoundIcon(soundIconElement);
+  }, []);
+
+  useEffect(() => {
+    if (soundIcon) {
+      soundIcon.addEventListener('click', () => {
+        setIsSoundOn(!isSoundOn);
+        if (isSoundOn) {
+          soundIcon.src = process.env.PUBLIC_URL + '/img/sound-off.svg'; // Replace with the path to your sound on icon
+          if (!audio.paused) {
+            audio.pause();
+          }
+        } else {
+          soundIcon.src = process.env.PUBLIC_URL + '/img/sound-on.svg'; // Replace with the path to your sound off icon
+          audio.loop = true;
+          if (audio.paused) {
+            audio.play();
+          }
+        }
+      });
+    }
+  }, [soundIcon, isSoundOn]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="grid--lines" />
+      <Header />
+      <img className="sound--icon" src={process.env.PUBLIC_URL + '/img/sound-off.svg'} alt="Sound Icon" />
+      {travelLogs}
     </div>
   );
 }
