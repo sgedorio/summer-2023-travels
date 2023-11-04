@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/summer-2023-travels/static/css/main.d8c9a40d.css",
+    "main.css": "/summer-2023-travels/static/css/main.a37c3e93.css",
     "main.js": "/summer-2023-travels/static/js/main.ccad30c5.js",
     "static/js/787.2be4c93b.chunk.js": "/summer-2023-travels/static/js/787.2be4c93b.chunk.js",
     "static/media/ArgentPixelCF-Regular.otf": "/summer-2023-travels/static/media/ArgentPixelCF-Regular.5b8d8cd894e14a34066f.otf",
     "static/media/NewsPlantinMTPro-Regular.otf": "/summer-2023-travels/static/media/NewsPlantinMTPro-Regular.1ed003457ba87a62967c.otf",
     "index.html": "/summer-2023-travels/index.html",
-    "main.d8c9a40d.css.map": "/summer-2023-travels/static/css/main.d8c9a40d.css.map",
+    "main.a37c3e93.css.map": "/summer-2023-travels/static/css/main.a37c3e93.css.map",
     "main.ccad30c5.js.map": "/summer-2023-travels/static/js/main.ccad30c5.js.map",
     "787.2be4c93b.chunk.js.map": "/summer-2023-travels/static/js/787.2be4c93b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d8c9a40d.css",
+    "static/css/main.a37c3e93.css",
     "static/js/main.ccad30c5.js"
   ]
 }
